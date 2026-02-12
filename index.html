@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💖 Dnzlychaa310 💖</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Untuk Sayangku Cintakuuuuu...</h1>
+            <h2>Enjelica Putri Maheswari</h2>
+            <div class="typewriter" id="typewriter">Alasan aku kuat sampai detik ini dan selalu bikin aku bahagia...</div>
+        </div>
+
+        <!-- Main Card -->
+        <div class="main-card">
+            <!-- Love Meter -->
+            <div class="love-meter">
+                <h3>❤️ Love Meter ❤️</h3>
+                <div class="meter-hearts">
+                    <span style="animation-delay: 0s;">💕</span>
+                    <span style="animation-delay: 0.2s;">💖</span>
+                    <span style="animation-delay: 0.4s;">💗</span>
+                    <span style="animation-delay: 0.6s;">💓</span>
+                    <span style="animation-delay: 0.8s;">💝</span>
+                </div>
+                <div class="meter-container">
+                    <div class="meter-fill" id="loveMeter">0%</div>
+                </div>
+                <p style="text-align: center; margin-top: 15px; color: #d4567a; font-weight: 600;">Cintaku padamu: <span id="lovePercentage">0</span>%</p>
+            </div>
+
+            <!-- Love Message -->
+            <div class="love-message-section">
+                <p class="love-message" id="loveMessage">
+                    Setiap detik bersamamu terasa seperti surga. Kamu adalah senyum di pagi hariku, kehangatan di malam dinginku, dan alasan aku percaya pada keajaiban cinta sejati. Terima kasih sudah hadir dan melengkapi hidupku, sayangkuu cintakuu... 💕
+                </p>
+            </div>
+
+            <!-- Buttons -->
+            <div class="btn-group">
+                <button class="btn btn-primary" onclick="changeLoveMessage()">💌 Pesan Cinta Baru</button>
+                <button class="btn btn-secondary" onclick="fillLoveMeter()">💗 Isi Love Meter</button>
+            </div>
+        </div>
+
+        <!-- Interactive Game -->
+        <div class="game-section">
+            <h3>🎮 Cari Hati yang Beruntung! 🎮</h3>
+            <p style="color: #5a3845; margin-bottom: 20px;">Klik kotak-kotak di bawah untuk menemukan pesan cinta yang tersembunyi ya sayanggg!</p>
+            <div class="hearts-grid" id="heartsGrid"></div>
+            <p id="gameMessage" style="margin-top: 20px; font-size: 1.2em; color: #d4567a; font-weight: 600; min-height: 30px;"></p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline">
+            <h3>📅 Perjalanan Cinta Kita 📅</h3>
+            <div class="timeline-item">
+                <div class="timeline-date">Hari Pertama</div>
+                <div class="timeline-content">Saat pertama kali bertemu, aku tau kamu seistimewa dan segembeng ituu... ✨</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Kencan Pertama</div>
+                <div class="timeline-content">Momen paling malu, senang dan bahagiaaa 💕</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Kata "Mamas"</div>
+                <div class="timeline-content">Hari dimana adek bilang "Mamas" dan membuat hidupku sempurna serta bahagia💖</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Hari Ini</div>
+                <div class="timeline-content">Setiap hari bersamamu adalah hari terbaik dalam hidupku! 🌟</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-date">Selamanya</div>
+                <div class="timeline-content">Bukan berjanji tapi akan berusaha untuk terus mencintaimu sampai akhir waktu...💍</div>
+            </div>
+        </div>
+
+        <!-- Photo Gallery -->
+        <div class="main-card">
+            <h3 style="font-family: 'Playfair Display', serif; color: #d4567a; font-size: 2em; text-align: center; margin-bottom: 30px;">📸 Kenangan Terindah 📸</h3>
+            <div class="photo-gallery">
+                <div class="photo-item" onclick="showPhotoMessage(1)">❤️</div>
+                <div class="photo-item" onclick="showPhotoMessage(2)">💕</div>
+                <div class="photo-item" onclick="showPhotoMessage(3)">💖</div>
+                <div class="photo-item" onclick="showPhotoMessage(4)">💗</div>
+                <div class="photo-item" onclick="showPhotoMessage(5)">💓</div>
+                <div class="photo-item" onclick="showPhotoMessage(6)">💝</div>
+            </div>
+            <p style="text-align: center; margin-top: 20px; color: #b8365d; font-style: italic;">Klik emoji untuk melihat pesan spesial! 💌</p>
+        </div>
+
+        <!-- Mega Surprise Button -->
+        <div style="text-align: center; margin: 50px 0;">
+            <button class="btn btn-mega" onclick="showMegaSurprise()">
+                🎁 KLIK UNTUK KEJUTAN BUAT ADEK!!! 🎁
+            </button>
+        </div>
+    </div>
+
+    <!-- Floating Action Button -->
+    <div class="fab" onclick="createHeartExplosion()" title="Klik untuk ledakan cinta!">💖</div>
+
+    <!-- Modal -->
+    <div class="modal" id="surpriseModal">
+        <div class="modal-content">
+            <h2 id="modalTitle">💝 Surprise! 💝</h2>
+            <div class="emoji-explosion" id="modalEmoji">😍💖✨</div>
+            <p id="modalMessage">Pesan spesial akan muncul di sini!</p>
+            <button class="btn btn-primary" onclick="closeModal()">Tutup (Tapi Aku Makin Cinta! 💕)</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
